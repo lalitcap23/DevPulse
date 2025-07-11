@@ -1,0 +1,21 @@
+{
+  "name": "devpulse",
+  "module": "index.ts",
+  "type": "module",
+  "private": true,
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5"
+  },
+  "dependencies": {
+    "chalk": "^5.4.1",
+    "node-notifier": "^10.0.1",
+    "ora": "^8.2.0"
+  },
+  "bin": {
+    "devpulse": "src/index.ts"
+    
+  }
+}
