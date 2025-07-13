@@ -13,6 +13,38 @@
       "mins": 1,
       "type": "focus",
       "time": "6:54:16 AM"
+    },
+    {
+      "mins": 1,
+      "type": "focus",
+      "time": "6:55:43 AM"
+    }
+  ],
+  "2025-07-13": [
+    {
+      "mins": 1,
+      "type": "focus",
+      "time": "2:32:36 AM"
+    },
+    {
+      "mins": 1,
+      "type": "focus",
+      "time": "2:42:33 AM"
+    },
+    {
+      "mins": 1,
+      "type": "focus",
+      "time": "3:26:13 AM"
+    },
+    {
+      "mins": 1,
+      "type": "focus",
+      "time": "3:49:08 AM"
+    },
+    {
+      "mins": 1,
+      "type": "focus",
+      "time": "4:02:10 AM"
     }
   ]
 }

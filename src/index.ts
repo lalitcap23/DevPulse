@@ -52,12 +52,16 @@ function startTimer(mins: number, type: "focus" | "break") {
     const m = Math.floor(seconds / 60);
     const s = seconds % 60;
     spinner.text = `${emoji} ${chalk.green(m)}:${chalk.yellow(s < 10 ? '0' + s : s)}`;
-    if (seconds <= 0) {
-      clearInterval(interval);
-      spinner.succeed(`✅ ${type} session complete! (${mins} min)`);
-      showPopup(`${type.toUpperCase()} session complete!`, `🎉 You completed ${mins} minutes.`);
-      saveSession(mins, type);
-    }
+   if (seconds <= 0) {
+  clearInterval(interval);
+  spinner.succeed(`✅ ${type} session complete! (${mins} min)`);
+
+  process.stdout.write("\x07"); // Terminal bell
+  exec("xdg-open alerts/alarm.html"); // Open browser tab with sound
+  showPopup(`${type.toUpperCase()} session complete!`, `🎉 You completed ${mins} minutes.`);
+  saveSession(mins, type);
+}
+
   }, 1000);
 }
 

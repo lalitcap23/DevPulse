@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Focus Complete</title>
+  </head>
+  <body>
+    <h1>🎉 Focus Session Complete!</h1>
+    <audio autoplay>
+      <source src="https://cdn.pixabay.com/download/audio/2023/09/21/audio_b5e9b1fa53.mp3?filename=under-hip-hop-276853.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+    <script>
+      window.onload = () => {
+        const audio = document.querySelector("audio");
+        if (audio) {
+          audio.play().catch(e => console.warn("Autoplay failed:", e));
+        }
+      };
+    </script>
+  </body>
+</html>
