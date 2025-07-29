@@ -41,13 +41,58 @@ When your timer completes, DevPulse uses **multiple notification methods** for m
 
 ## 🚀 Installation
 
+### **Global Installation (Recommended)**
+
+**Install from npm/Bun registry:**
+
 ```bash
+# Using Bun (recommended)
+bun add -g devpulse
+
+# Or using npm
+npm install -g devpulse
+```
+
+**Install from source:**
+
+```bash
+git clone <repository-url>
+cd devpulse
+bun install
+bun link
+```
+
+### **Local Development**
+
+```bash
+git clone <repository-url>
+cd devpulse
 bun install
 ```
 
 ## 📖 Usage
 
-### Basic Commands
+### **Global Commands (After Installation)**
+
+```bash
+# Quick test (1 minute)
+devpulse focus 1
+
+# Standard sessions
+devpulse focus 25      # 25-minute Pomodoro
+devpulse focus 45      # 45-minute extended focus
+devpulse break 5       # 5-minute break
+
+# Check your progress
+devpulse log           # Today's sessions
+devpulse report        # Weekly summary
+
+# Get help
+devpulse --help
+devpulse --version
+```
+
+### **Local Development Commands**
 
 ```bash
 # Start a 25-minute focus session
@@ -124,7 +169,31 @@ The notification system is designed to work across different Linux environments:
 
 ## 🎯 **✅ SIMPLE COMMANDS**
 
-### **🚀 Super Easy Focus & Break:**
+### **🚀 Global Commands (After `bun add -g devpulse`):**
+
+```bash
+# Quick test (1 minute)
+devpulse focus 1
+
+# Standard sessions
+devpulse focus 25      # 25-minute Pomodoro focus
+devpulse focus 45      # 45-minute extended focus
+devpulse break 5       # 5-minute break
+
+# Default sessions
+devpulse focus         # 25-minute focus (default)
+devpulse break         # 25-minute break (default)
+
+# Check progress
+devpulse log           # Today's sessions
+devpulse report        # Weekly summary
+
+# Help & info
+devpulse --help
+devpulse --version
+```
+
+### **🚀 Local Development Commands:**
 
 ```bash
 # Quick test (1 minute)
@@ -143,6 +212,11 @@ bun break          # 25-minute break (default)
 ### **📊 Check Your Progress:**
 
 ```bash
+# Global install
+devpulse log       # Today's sessions
+devpulse report    # Weekly summary
+
+# Local development
 bun devlog         # Today's sessions
 bun devreport      # Weekly summary
 ```
@@ -150,6 +224,10 @@ bun devreport      # Weekly summary
 ### **🧪 Quick Testing:**
 
 ```bash
+# Global install
+devpulse focus 0.1     # 6-second test
+
+# Local development
 bun test           # Test all notifications
 bun test-sound     # Test sound alerts only
 ```
@@ -166,14 +244,17 @@ bun test-sound     # Test sound alerts only
 ### **🎯 Quick Start:**
 
 ```bash
+# Install globally first
+bun add -g devpulse
+
 # Try this first to test all notifications:
-bun focus1
+devpulse focus 1
 ```
 
 ### **💡 Alternative Commands:**
 
 ```bash
-# If you prefer longer commands:
+# If you prefer longer commands or local development:
 bun run src/index.ts focus 1       # 1-minute test
 bun run src/index.ts focus 25      # 25-minute focus
 bun run src/index.ts break 5       # 5-minute break

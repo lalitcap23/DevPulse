@@ -1,9 +1,15 @@
 {
   "name": "devpulse",
+  "version": "1.0.0",
+  "description": "A powerful terminal-based focus timer with enhanced notifications",
+  "author": "Your Name",
+  "license": "MIT",
+  "keywords": ["timer", "focus", "productivity", "cli", "terminal"],
   "module": "index.ts",
   "type": "module",
-  "private": true,
+  "main": "src/index.ts",
   "scripts": {
+    "build": "bun build src/index.ts --target=bun --outdir=dist",
     "dev": "bun run src/index.ts",
     "focus": "bun run src/index.ts focus",
     "focus25": "bun run src/index.ts focus 25",
@@ -19,7 +25,8 @@
     "stats": "bun run src/index.ts report",
     "test-sound": "bun run alerts/play-sound.sh",
     "test-timer": "bun run src/index.ts focus 0.1",
-    "test": "bun run test-notifications.ts"
+    "test": "bun run test-notifications.ts",
+    "prepublishOnly": "bun run build"
   },
   "devDependencies": {
     "@types/bun": "latest"
@@ -33,7 +40,12 @@
     "ora": "^8.2.0"    
   },
   "bin": {
-    "devpulse": "src/index.ts"
-    
-  }
+    "devpulse": "./src/index.ts"
+  },
+  "files": [
+    "src/",
+    "alerts/",
+    "data/",
+    "README.md"
+  ]
 }
