@@ -122,50 +122,63 @@ The notification system is designed to work across different Linux environments:
 - Ensure you have a web browser installed
 - Check if `xdg-open` works: `xdg-open https://google.com`
 
-## 🎯 **Working Commands**
+## 🎯 **✅ SIMPLE COMMANDS**
 
-### **✅ Confirmed Working Commands:**
+### **🚀 Super Easy Focus & Break:**
 
 ```bash
-# Focus sessions
-bun run src/index.ts focus          # 25-min focus
-bun run src/index.ts focus 45       # 45-min focus
-bun run src/index.ts focus 1        # 1-min focus (testing)
+# Quick test (1 minute)
+bun focus1
 
-# Break sessions
-bun run src/index.ts break          # 25-min break
-bun run src/index.ts break 5        # 5-min break
+# Standard sessions
+bun focus25        # 25-minute Pomodoro focus
+bun focus45        # 45-minute extended focus
+bun break5         # 5-minute break
 
-# View progress
-bun run src/index.ts log            # Today's sessions
-bun run src/index.ts report         # Weekly summary
-
-# Help
-bun run src/index.ts                # Show help/usage
+# Default sessions
+bun focus          # 25-minute focus (default)
+bun break          # 25-minute break (default)
 ```
 
-### **🧪 Testing Commands:**
+### **📊 Check Your Progress:**
 
 ```bash
-bun test                            # Test all notifications
-bun test-sound                      # Test sound alerts only
-bun test-timer                      # Quick 6-second timer test
+bun devlog         # Today's sessions
+bun devreport      # Weekly summary
 ```
 
-### **📝 Quick Examples:**
+### **🧪 Quick Testing:**
 
 ```bash
-# Start a 1-minute test session
-bun run src/index.ts focus 1
+bun test           # Test all notifications
+bun test-sound     # Test sound alerts only
+```
 
-# Start a standard 25-minute Pomodoro
-bun run src/index.ts focus
+### **📱 What You Get When Timer Completes:**
 
-# Take a 5-minute break
-bun run src/index.ts break 5
+- 🎨 **Colorful terminal alerts**
+- 🔔 **8 terminal bells** (extra loud!)
+- 🔊 **System beep sound** (1000Hz tone)
+- 📱 **Desktop notification** (if available)
+- 🌐 **Browser alarm popup** (if display available)
+- ✨ **Celebration messages**
 
-# Check your progress
-bun run src/index.ts log
+### **🎯 Quick Start:**
+
+```bash
+# Try this first to test all notifications:
+bun focus1
+```
+
+### **💡 Alternative Commands:**
+
+```bash
+# If you prefer longer commands:
+bun run src/index.ts focus 1       # 1-minute test
+bun run src/index.ts focus 25      # 25-minute focus
+bun run src/index.ts break 5       # 5-minute break
+bun run src/index.ts log           # Today's sessions
+bun run src/index.ts report        # Weekly summary
 ```
 
 ---
