@@ -1,21 +1,214 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Focus Complete</title>
+    <title>🎉 DevPulse - Session Complete!</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+        background-size: 400% 400%;
+        animation: gradientShift 2s ease infinite;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        font-family: 'Arial', sans-serif;
+        overflow: hidden;
+      }
+      
+      @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+      }
+      
+      .celebration {
+        text-align: center;
+        color: white;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        animation: bounce 1s ease-in-out infinite alternate;
+      }
+      
+      @keyframes bounce {
+        from { transform: translateY(-10px) scale(1); }
+        to { transform: translateY(10px) scale(1.05); }
+      }
+      
+      h1 {
+        font-size: 4rem;
+        margin: 0;
+        text-shadow: 3px 3px 6px rgba(0,0,0,0.7);
+      }
+      
+      .message {
+        font-size: 1.5rem;
+        margin: 20px 0;
+        opacity: 0.9;
+      }
+      
+      .confetti {
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        background: #f39c12;
+        animation: confetti-fall 3s linear infinite;
+      }
+      
+      @keyframes confetti-fall {
+        0% {
+          transform: translateY(-100vh) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(100vh) rotate(720deg);
+          opacity: 0;
+        }
+      }
+      
+      .flash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        opacity: 0;
+        animation: flash 0.5s ease-in-out 3;
+        pointer-events: none;
+      }
+      
+      @keyframes flash {
+        0%, 100% { opacity: 0; }
+        50% { opacity: 0.8; }
+      }
+    </style>
   </head>
   <body>
-    <h1>🎉 Focus Session Complete!</h1>
-    <audio autoplay>
-      <source src="https://cdn.pixabay.com/download/audio/2023/09/21/audio_b5e9b1fa53.mp3?filename=under-hip-hop-276853.mp3" type="audio/mp3" />
-      Your browser does not support the audio element.
+    <div class="flash"></div>
+    <div class="celebration">
+      <h1>🎉 Session Complete! 🎉</h1>
+      <div class="message">Great work! Time for a break! 🚀</div>
+    </div>
+    
+    <audio id="alarm1" preload="auto">
+      <source src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbq2EcBj+a2/LDciUFLIHO8tiJNwgZaLvt559NEAxQp+PwtmMcBjiR1/LMeSwFJHfH8N2QQAoUXrTp66hVFApGn+DyvmAXAzdz0+vGeSMFl2+z9eOVSA0PVqzj7a1bGQ9B" type="audio/wav">
     </audio>
+    
+    <audio id="alarm2" preload="auto">
+      <source src="https://www.soundjay.com/misc/sounds/bell-ringing-05.wav" type="audio/wav">
+      <source src="https://cdn.pixabay.com/download/audio/2023/09/21/audio_b5e9b1fa53.mp3?filename=under-hip-hop-276853.mp3" type="audio/mp3">
+    </audio>
+    
     <script>
-      window.onload = () => {
-        const audio = document.querySelector("audio");
-        if (audio) {
-          audio.play().catch(e => console.warn("Autoplay failed:", e));
+      // Create confetti effect
+      function createConfetti() {
+        const colors = ['#ff6b6b', '#4ecdc4', '#45b7d1', '#96ceb4', '#feca57', '#ff9ff3', '#54a0ff'];
+        for (let i = 0; i < 50; i++) {
+          setTimeout(() => {
+            const confetti = document.createElement('div');
+            confetti.className = 'confetti';
+            confetti.style.left = Math.random() * 100 + '%';
+            confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
+            confetti.style.animationDelay = Math.random() * 3 + 's';
+            document.body.appendChild(confetti);
+            
+            setTimeout(() => confetti.remove(), 3000);
+          }, i * 50);
         }
+      }
+      
+      // Play multiple sounds for maximum impact
+      function playAlarms() {
+        const alarm1 = document.getElementById('alarm1');
+        const alarm2 = document.getElementById('alarm2');
+        
+        // Try to play both sounds
+        if (alarm1) {
+          alarm1.volume = 0.8;
+          alarm1.play().catch(e => console.warn("Alarm1 failed:", e));
+        }
+        
+        setTimeout(() => {
+          if (alarm2) {
+            alarm2.volume = 0.7;
+            alarm2.play().catch(e => console.warn("Alarm2 failed:", e));
+          }
+        }, 500);
+        
+        // Create system beeps as backup
+        for (let i = 0; i < 3; i++) {
+          setTimeout(() => {
+            // Create a beep sound using Web Audio API
+            const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+            
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+            
+            oscillator.frequency.value = 800;
+            oscillator.type = 'sine';
+            
+            gainNode.gain.setValueAtTime(0.3, audioContext.currentTime);
+            gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.5);
+            
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+          }, i * 600);
+        }
+      }
+      
+      // Vibrate if supported
+      function triggerVibration() {
+        if (navigator.vibrate) {
+          navigator.vibrate([200, 100, 200, 100, 200]);
+        }
+      }
+      
+      // Request permission for notifications
+      function requestNotificationPermission() {
+        if ("Notification" in window && Notification.permission === "default") {
+          Notification.requestPermission();
+        }
+      }
+      
+      // Show browser notification
+      function showBrowserNotification() {
+        if ("Notification" in window && Notification.permission === "granted") {
+          const notification = new Notification("🎉 DevPulse Session Complete!", {
+            body: "Great work! Time for a break! 🚀",
+            icon: "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎉</text></svg>",
+            requireInteraction: true
+          });
+          
+          setTimeout(() => notification.close(), 5000);
+        }
+      }
+      
+      // Main initialization
+      window.onload = () => {
+        requestNotificationPermission();
+        createConfetti();
+        playAlarms();
+        triggerVibration();
+        showBrowserNotification();
+        
+        // Auto-close after 10 seconds
+        setTimeout(() => {
+          window.close();
+        }, 10000);
       };
+      
+      // Handle click to dismiss
+      document.addEventListener('click', () => {
+        window.close();
+      });
+      
+      // Handle key press to dismiss
+      document.addEventListener('keydown', () => {
+        window.close();
+      });
     </script>
   </body>
 </html>

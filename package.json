@@ -3,6 +3,18 @@
   "module": "index.ts",
   "type": "module",
   "private": true,
+  "scripts": {
+    "dev": "bun run src/index.ts",
+    "focus": "bun run src/index.ts focus $@",
+    "break": "bun run src/index.ts break $@", 
+    "log": "bun run src/index.ts log",
+    "logs": "bun run src/index.ts log",
+    "report": "bun run src/index.ts report",
+    "stats": "bun run src/index.ts report",
+    "test-sound": "bun run alerts/play-sound.sh",
+    "test-timer": "bun run src/index.ts focus 0.1",
+    "test": "bun run test-notifications.ts"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
