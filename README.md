@@ -354,9 +354,6 @@ Found a bug or want to contribute?
 - [ ] Cross-platform notifications
 - [ ] Session templates and presets
 
-## 🙏 Support
-
-If DevPulse helps improve your productivity:
 
 
 
