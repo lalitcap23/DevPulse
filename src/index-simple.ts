@@ -29,9 +29,7 @@ if (command === "focus") {
       
       // Simple notifications
       console.log(chalk.bgRed.white.bold("  🚨 TIMER COMPLETE! 🚨  "));
-      console.log(chalk.bgYellow.black.bold("  🎉 GREAT JOB! 🎉  "));
-      console.log(chalk.bgGreen.white.bold("  ✨ TIME FOR A BREAK! ✨  "));
-      
+     
       // Terminal bells
       process.stdout.write("\x07\x07\x07");
       

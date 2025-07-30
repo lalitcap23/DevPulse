@@ -1,0 +1,17 @@
+# Development files
+.git/
+.gitignore
+debug.js
+test-simple.ts
+node_modules/
+bun.lock
+
+# Data directory (will be created in user's home)
+data/
+
+# Keep these for publishing
+# src/
+# alerts/
+# README.md
+# LICENSE
+# package.json
