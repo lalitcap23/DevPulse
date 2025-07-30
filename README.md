@@ -358,11 +358,7 @@ Found a bug or want to contribute?
 
 If DevPulse helps improve your productivity:
 
-- ⭐ **Star the repository** on [GitHub](https://github.com/lalitcap23/DevPulse)
-- 📦 **Rate the package** on [npm](https://www.npmjs.com/package/devpulse)
-- 🐦 **Share it** with your friends and colleagues
 
----
 
 **🚀 Get started now**: `npm install -g devpulse && devpulse focus 1`
 
