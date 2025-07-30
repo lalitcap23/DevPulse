@@ -1,6 +1,23 @@
 # 🧠 DevPulse - Enhanced Terminal Focus Tracker
 
+[![npm version](https://img.shields.io/npm/v/devpulse.svg)](https://www.npmjs.com/package/devpulse)
+[![npm downloads](https://img.shields.io/npm/dm/devpulse.svg)](https://www.npmjs.com/package/devpulse)
+[![GitHub release](https://img.shields.io/github/release/lalitcap23/DevPulse.svg)](https://github.com/lalitcap23/DevPulse/releases)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 A powerful, terminal-based focus timer with **multiple notification methods** to ensure you never miss when your session completes!
+
+**📦 Available on npm**: [`devpulse`](https://www.npmjs.com/package/devpulse)
+
+## 🎯 Quick Start
+
+```bash
+# Install globally
+npm install -g devpulse
+
+# Try it immediately
+devpulse focus 1
+```
 
 ## ✨ Features
 
@@ -41,23 +58,39 @@ When your timer completes, DevPulse uses **multiple notification methods** for m
 
 ## 🚀 Installation
 
-### **Global Installation (Recommended)**
+### **📦 Global Installation (Recommended)**
 
-**Install from npm/Bun registry:**
+**Install from npm:**
 
 ```bash
-# Using Bun (recommended)
+# Using npm
+npm install -g devpulse
+
+# Using Bun (recommended for faster performance)
 bun add -g devpulse
 
-# Or using npm
-npm install -g devpulse
+# Using pnpm
+pnpm add -g devpulse
 ```
+
+**After installation, use anywhere:**
+
+```bash
+devpulse focus 25    # Start using immediately!
+```
+
+### **🔗 Package Links**
+
+- **📦 npm Package**: [devpulse](https://www.npmjs.com/package/devpulse)
+- **🐙 GitHub Repository**: [lalitcap23/DevPulse](https://github.com/lalitcap23/DevPulse)
+- **📋 Issues**: [Report bugs](https://github.com/lalitcap23/DevPulse/issues)
+- **📖 Releases**: [View all versions](https://github.com/lalitcap23/DevPulse/releases)
 
 **Install from source:**
 
 ```bash
-git clone <repository-url>
-cd devpulse
+git clone https://github.com/lalitcap23/DevPulse.git
+cd DevPulse
 bun install
 bun link
 ```
@@ -65,8 +98,8 @@ bun link
 ### **Local Development**
 
 ```bash
-git clone <repository-url>
-cd devpulse
+git clone https://github.com/lalitcap23/DevPulse.git
+cd DevPulse
 bun install
 ```
 
@@ -83,7 +116,7 @@ devpulse focus 25      # 25-minute Pomodoro
 devpulse focus 45      # 45-minute extended focus
 devpulse break 5       # 5-minute break
 
-# Check your progress
+# Check your progress (coming soon)
 devpulse log           # Today's sessions
 devpulse report        # Weekly summary
 
@@ -126,7 +159,7 @@ bun run test-timer
 
 ## 🛠️ Requirements
 
-- **Bun runtime** (v1.2.14+)
+- **Bun runtime** (v1.0.0+) or **Node.js** (v16+)
 - **Linux desktop environment** (for full notification support)
 - **Audio system** (PulseAudio/ALSA recommended)
 - **Web browser** (for enhanced alarm popup)
@@ -153,6 +186,35 @@ The notification system is designed to work across different Linux environments:
 
 ## 🔧 Troubleshooting
 
+### **Installation Issues**
+
+**Package not found?**
+
+```bash
+npm install -g devpulse@latest
+```
+
+**Permission errors?**
+
+```bash
+sudo npm install -g devpulse
+# Or use a node version manager like nvm
+```
+
+**Update to latest version:**
+
+```bash
+npm update -g devpulse
+```
+
+**Uninstall:**
+
+```bash
+npm uninstall -g devpulse
+```
+
+### **Runtime Issues**
+
 **No sound?**
 
 - Check audio system: `speaker-test -t sine -f 800 -l 1`
@@ -166,6 +228,11 @@ The notification system is designed to work across different Linux environments:
 
 - Ensure you have a web browser installed
 - Check if `xdg-open` works: `xdg-open https://google.com`
+
+**Command not found?**
+
+- Ensure npm global bin is in PATH: `npm bin -g`
+- Restart your terminal after installation
 
 ## 🎯 **✅ SIMPLE COMMANDS**
 
@@ -245,7 +312,7 @@ bun test-sound     # Test sound alerts only
 
 ```bash
 # Install globally first
-bun add -g devpulse
+npm install -g devpulse
 
 # Try this first to test all notifications:
 devpulse focus 1
@@ -262,6 +329,41 @@ bun run src/index.ts log           # Today's sessions
 bun run src/index.ts report        # Weekly summary
 ```
 
+## 📊 Package Information
+
+- **📦 Package Name**: `devpulse`
+- **🏷️ Latest Version**: `1.1.0`
+- **📏 Package Size**: 7.4 kB (packed)
+- **🔗 Dependencies**: 3 (chalk, node-notifier, ora)
+- **📄 License**: MIT
+- **🌐 Homepage**: [GitHub Repository](https://github.com/lalitcap23/DevPulse)
+
+## 🤝 Contributing
+
+Found a bug or want to contribute?
+
+1. **🐛 Report Issues**: [GitHub Issues](https://github.com/lalitcap23/DevPulse/issues)
+2. **💡 Feature Requests**: [Discussions](https://github.com/lalitcap23/DevPulse/discussions)
+3. **🔀 Pull Requests**: Fork → Feature → PR
+
+## 📈 Roadmap
+
+- [ ] Session logging and statistics
+- [ ] Custom notification sounds
+- [ ] Configuration file support
+- [ ] Cross-platform notifications
+- [ ] Session templates and presets
+
+## 🙏 Support
+
+If DevPulse helps improve your productivity:
+
+- ⭐ **Star the repository** on [GitHub](https://github.com/lalitcap23/DevPulse)
+- 📦 **Rate the package** on [npm](https://www.npmjs.com/package/devpulse)
+- 🐦 **Share it** with your friends and colleagues
+
 ---
+
+**🚀 Get started now**: `npm install -g devpulse && devpulse focus 1`
 
 Built with ❤️ using [Bun](https://bun.sh) - the fast all-in-one JavaScript runtime.
